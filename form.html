@@ -13,8 +13,10 @@
     <div id="heading">Virtual Interview Registration Form</div>
     <div id="form-div">
         <form action="" id="form" method="post">
-            <label class="label">Full Name</label>
-            <input type="text" name="fullname" placeholder="Enter Full Name..." id="name" /><br />
+            <label class="label">First Name</label>
+            <input type="text" name="fname" placeholder="Enter First Name..." id="fname" />
+            <label class="label">Last Name</label>
+            <input type="text" name="lname" placeholder="Enter Last Name..." id="lname" /><br />
             <label for="">Email Address</label>
             <input type="email" name="email" placeholder="Enter Email Address..." id="email" /><br />
             <label for="">Contact Number</label>
@@ -38,9 +40,23 @@
         </form>
         </fieldset>
         </legend>
-        <table id="dtable"></table>
+        <div id="edittable" style="display: none">
+            <form method="post" action="">
+                <span><input class="edit" type="number" id="index" hidden /></span>
+                <span><input class="edit" type="text" id="efname" /></span>
+                <span><input class="edit" type="text" id="elname" /></span>
+                <span><input class="edit" type="text" id="eemail" /></span>
+                <span><input class="edit" type="text" id="econtact" /></span>
+                <span><input class="edit" type="text" id="edob" /></span>
+                <span><input class="edit" type="text" id="egender" /></span>
+                <span><input class="edit" type="text" id="ehq" /></span>
+                <span>
+                    <input type="button" value="Update" id="updateData"></input>
+                </span>
+            </form>
+        </div>
+        <table style="width: 100%;" id="dtable"></table>
         <script src="form.js"></script>
-        <p id="test"></p>
 </body>
 
 </html>
