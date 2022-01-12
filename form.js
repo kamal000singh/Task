@@ -23,13 +23,31 @@ document.getElementById("submit").onclick = function () {
     hq: document.getElementById("hq").value,
   });
 
-  setTimeout(() => {
-    let str = "";
-    detail.forEach((item) => {
-      str += `<tr><td>${item.name}</td><td>${item.email}</td><td>${item.contact}</td><td>${item.dob}</td>
-              <td>${item.gender}</td><td>${item.hq}</td><td><button>Edit</button></td><td><button>Delete</button></td></tr>`;
-    });
-    console.log(str);
-    document.getElementById("dtable").innerHTML = str;
-  }, 500);
+  //call display function;
+  displayData();
 };
+
+//function used to display data in the table
+function displayData() {
+  let str = "";
+  detail.map((item, index) => {
+    str += `<tr key =${index}><td>${item.name}</td><td>${item.email}</td><td>${item.contact}</td><td>${item.dob}</td>
+                  <td>${item.gender}</td><td>${item.hq}</td><td><button onclick="editData(${index})">Edit</button></td>
+                  <td><button onclick="deleteData(${index})">Delete</button></td></tr>`;
+  });
+  console.log(str);
+  document.getElementById("dtable").innerHTML = str;
+}
+
+//function used for delete perticular element in array
+function deleteData(index) {
+  let temp = [];
+  for (let i = 0; i < detail.length; i++) {
+    if (i != index) {
+      temp.push(detail[i]);
+    }
+  }
+  detail = temp;
+  displayData();
+}
+function editData(index) {}

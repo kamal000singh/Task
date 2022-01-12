@@ -21,6 +21,8 @@
             <input type="number" name="contact" placeholder="Enter phone number..." id="contact" /><br />
             <label for="">DOB</label>
             <input type="date" name="dob" id="dob" placeholder="Enter date of birth..." /><br />
+            <label for="">Gender</label> <input type="radio" name="gender" value="Male" /><label for="">Male</label>
+            <input type="radio" name="gender" value="Female" /><label for="">Female</label> <br />
             <label for="">Select Highest Qualification </label>
             <select id="hq" name="hq">
                 <option value="" disabled selected>Select highest Qualification</option>
@@ -31,14 +33,14 @@
                 <option value="Post-Graduation">Post-Graduation</option>
             </select>
             <br />
-            <label for="">Gender</label> <input type="radio" name="gender" value="Male" /><label for="">Male</label>
-            <input type="radio" name="gender" value="Female" /><label for="">Female</label> <br />
+
             <input type="button" value="submit" id="submit" />
         </form>
         </fieldset>
         </legend>
-        <script src="form.js"></script>
         <table id="dtable"></table>
+        <script src="form.js"></script>
+        <p id="test"></p>
 </body>
 
 </html>
