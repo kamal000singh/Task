@@ -1,3 +1,5 @@
+let detail = [];
+
 //gender function is used for get the value from radio button
 function gender() {
   let res = document.getElementsByName("gender");
@@ -9,35 +11,25 @@ function gender() {
   return res;
 }
 
-//submitData() function execute when submit button clicked
-document.getElementById("submit").onclick = function submitData() {
-  //diplay table after clicked on submit button
-  document.getElementById("table").style.display = "block";
+//function execute when submit button clicked
+document.getElementById("submit").onclick = function () {
+  //insert object into array
+  detail.push({
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    contact: document.getElementById("contact").value,
+    dob: document.getElementById("dob").value,
+    gender: gender(),
+    hq: document.getElementById("hq").value,
+  });
 
-  //get name value by id from text input field
-  document.getElementById("dname").innerHTML =
-    document.getElementById("name").value;
-
-  //get email value by id from email input field
-  document.getElementById("demail").innerHTML =
-    document.getElementById("email").value;
-
-  //get contact value by id from number input field
-  document.getElementById("dcontact").innerHTML =
-    document.getElementById("contact").value;
-
-  //get dob value by id from date input field
-  document.getElementById("ddob").innerHTML =
-    document.getElementById("dob").value;
-
-  //get gender value by id from radio input field
-  document.getElementById("dgender").innerHTML = gender();
-
-  //get hq value by id from option select field
-  document.getElementById("dhq").innerHTML =
-    document.getElementById("hq").value;
-
-  //get resume value by id from file input field
-  document.getElementById("dresume").innerHTML =
-    document.getElementById("resume").value;
+  setTimeout(() => {
+    let str = "";
+    detail.forEach((item) => {
+      str += `<tr><td>${item.name}</td><td>${item.email}</td><td>${item.contact}</td><td>${item.dob}</td>
+              <td>${item.gender}</td><td>${item.hq}</td><td><button>Edit</button></td><td><button>Delete</button></td></tr>`;
+    });
+    console.log(str);
+    document.getElementById("dtable").innerHTML = str;
+  }, 500);
 };
