@@ -1,0 +1,49 @@
+body {
+  background-color: antiquewhite;
+  box-sizing: border-box;
+}
+
+#heading {
+  width: 100%;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+}
+#form-div {
+  padding: 50px;
+}
+input {
+  margin: 10px;
+  width: 30%;
+  font-size: 20px;
+  border-radius: 4px;
+  background-color: whitesmoke;
+  border: 1px solid #000;
+}
+select {
+  margin: 10px;
+  width: 30%;
+  font-size: 20px;
+  border-radius: 4px;
+  background-color: whitesmoke;
+  border: 1px solid #000;
+}
+input[type="radio"] {
+  width: auto;
+  font-size: 20px;
+}
+input[type="button"] {
+  width: 100px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(28, 151, 34);
+  color: white;
+  font-size: 20px;
+}
+input[type="button"]:hover {
+  background-color: rgb(18, 116, 23);
+}
+label {
+  margin-right: 20px;
+  font-size: 20px;
+}

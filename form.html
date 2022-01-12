@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interview Form</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="heading">Virtual Interview Registration Form</div>
+    <div id="form-div">
+        <form action="" id="form" method="post">
+            <label class="label">Full Name</label>
+            <input type="text" name="fullname" placeholder="Enter Full Name..." id="name" /><br />
+            <label for="">Email Address</label>
+            <input type="email" name="email" placeholder="Enter Email Address..." id="email" /><br />
+            <label for="">Contact Number</label>
+            <input type="number" name="contact" placeholder="Enter phone number..." id="contact" /><br />
+            <label for="">DOB</label>
+            <input type="date" name="dob" id="dob" placeholder="Enter date of birth..." /><br />
+            <label for="">Select Highest Qualification </label>
+            <select id="hq" name="hq">
+                <option value="" disabled selected>Select highest Qualification</option>
+                <option value="High School">High School</option>
+                <option value="Intermediate School">Intermediate School</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Graduation">Graduation</option>
+                <option value="Post-Graduation">Post-Graduation</option>
+            </select>
+            <br />
+            <label for="">Gender</label> <input type="radio" name="gender" value="Male" /><label for="">Male</label>
+            <input type="radio" name="gender" value="Female" /><label for="">Female</label> <br />
+            <label for="">Upload Resume</label>
+            <input type="file" name="resume" id="resume" /><br />
+            <input type="button" value="submit" id="submit" />
+        </form>
+        </fieldset>
+        </legend>
+        <table id="table" style="width: 50%; margin-top:50px; border: 1px solid #000; display: none">
+            <tr>
+                <td style="width: 50%">Full Name</td>
+                <td style="width: 50%" id="dname"></td>
+            </tr>
+            <tr>
+                <td style="width: 50%">Email Address</td>
+                <td style="width: 50%" id="demail"></td>
+            </tr>
+            <tr>
+                <td style="width: 50%">Contact Number</td>
+                <td style="width: 50%" id="dcontact"></td>
+            </tr>
+            <tr>
+                <td style="width: 50%">Date of Birth</td>
+                <td style="width: 50%" id="ddob"></td>
+            </tr>
+            <tr>
+                <td style="width: 50%">Gender</td>
+                <td style="width: 50%" id="dgender"></td>
+            </tr>
+            <tr>
+                <td style="width: 50%">Highest Qualification</td>
+                <td style="width: 50%" id="dhq"></td>
+            </tr>
+            <tr>
+                <td style="width: 50%">Your Resume</td>
+                <td style="width: 50%" id="dresume"></td>
+            </tr>
+        </table>
+        <script>
+            function gender() {
+                let res = document.getElementsByName("gender");
+                for (let i = 0; i < res.length; i++) {
+                    if (res[i].checked) {
+                        res = res[i].value;
+                    }
+                }
+                return res;
+            }
+
+            document.getElementById("submit").onclick = function () {
+                document.getElementById("table").style.display = "block";
+                document.getElementById("dname").innerHTML =
+                    document.getElementById("name").value;
+
+                document.getElementById("demail").innerHTML =
+                    document.getElementById("email").value;
+
+                document.getElementById("dcontact").innerHTML =
+                    document.getElementById("contact").value;
+
+
+                document.getElementById("ddob").innerHTML =
+                    document.getElementById("dob").value;
+
+                document.getElementById("dgender").innerHTML = gender();
+
+                document.getElementById("dhq").innerHTML =
+                    document.getElementById("hq").value;
+                document.getElementById("dresume").innerHTML =
+                    document.getElementById("resume").value;
+            };
+        </script>
+</body>
+
+</html>
