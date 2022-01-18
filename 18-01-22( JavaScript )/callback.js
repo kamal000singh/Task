@@ -12,7 +12,7 @@ const display = () => {
     str += `<li>${item.name}</li>`;
   });
   setTimeout(() => {
-    document.getElementById("test").innerHTML = str;
+    document.getElementById("list").innerHTML = str;
   }, 2000);
 };
 let newData = { name: "Nilesh Kumar", Profile: "Android developer" };
