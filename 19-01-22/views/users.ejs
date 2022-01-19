@@ -1,0 +1,14 @@
+<%- include("partition/userheader.ejs") -%>
+    <%if(title!=""){%>
+        <div style="text-align: center;font-size: 4em; margin: 50px 0px 20px 0px; color: rgb(128, 48, 199);">
+            Welcome to <%= title %>
+        </div>
+        <%}else{%>
+            <div style="text-align: center;font-size: 4em; margin: 50px 0px 20px 0px; color: rgb(128, 48, 199);">
+
+                <%= name %>
+            </div>
+            <%}%>
+                <hr>
+
+                <%- include("partition/userfooter.ejs") -%>

@@ -1,5 +1,14 @@
-<%- include("header") -%>
-    <div class="heading">Welcome to <%= title %>
-    </div>
+<%- include("partition/header.ejs") -%>
+    <%if(title!=""){%>
+        <div class="heading">
+            Welcome to <%= title %>
+        </div>
+        <%}else{%>
+            <div class="heading">
 
-    <%- include("footer") -%>
+                <%= name %>
+            </div>
+            <%}%>
+                <hr>
+
+                <%- include("partition/footer.ejs") -%>
