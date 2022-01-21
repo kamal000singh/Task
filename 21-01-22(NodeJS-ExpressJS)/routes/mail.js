@@ -1,10 +1,6 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
-require("dotenv").config();
 const router = express.Router();
-const bodyParser = require("body-parser");
-const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
+const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -41,14 +37,14 @@ router.post("/mail", (req, res) => {
     from: "kamal000singh2017@gmail.com",
     to: email,
     subject: "Thanks for your feedback",
-    text: "Your suggestion is precise for us",
+    text: "Your suggestion is very important for us",
   };
   transporter.sendMail(feedbackMail, (err, info) => {
     if (err) throw err;
-    console.log("Sending mail : " + info.response);
+    console.log("Sending mail : " + info);
   });
   setTimeout(() => {
-    res.redirect("/");
+    res.redirect("/mail");
   }, 2000);
 });
 
