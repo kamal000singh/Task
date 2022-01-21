@@ -1,13 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-
+const connection = require("../connection/connection");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: { user: process.env.userId, pass: process.env.userPwd },
 });
 
 router.get("/mail", (req, res) => {
+  // let sql =
+  //   "INSERT INTO feedbackData(fullname,email,suggestion) VALUES('KAMAL','kamal000rawat@gmail.com','helllo world')";
+  // connect.query(sql, (err) => {
+  //   if (err) throw err;
+  //   console.log("Data inserted");
+  // });
   //   console.log("get request");
   res.render("mail");
 });
@@ -16,23 +22,12 @@ router.post("/mail", (req, res) => {
   let fname = req.body.fname;
   let email = req.body.email;
   let suggestion = req.body.suggestion;
-  let mailOptions = {
-    from: "kamal000singh2017@gmail.com",
-    to: "kamal000rawat@gmail.com",
-    subject: "New Suggestion from user",
-    text:
-      "User Full Name : " +
-      fname +
-      "\nUser Email ID : " +
-      email +
-      "\nUser Suggestion : " +
-      suggestion,
-  };
-  transporter.sendMail(mailOptions, (err, info) => {
+  let sql = `INSERT INTO feedbackData(fullname,email,suggestion) VALUES("${fname}","${email}","${suggestion}")`;
+  connection.query(sql, (err) => {
     if (err) throw err;
-    console.log("Sending mail : " + info.response);
-    alert("Your mail has been sent");
+    console.log("Thanks for your suggestion");
   });
+
   let feedbackMail = {
     from: "kamal000singh2017@gmail.com",
     to: email,
